@@ -1,0 +1,719 @@
+
+// Basic array conceptes in c++ programe
+
+/*#include <iostream>
+using namespace std;
+int main()
+{
+    int num;
+    cin>>num;
+    if(num <= 1)
+    {
+        cout<<"The least prime factor is : "<<num<<endl;
+    }
+    else
+    {
+        for(int i=2;i*i<=num;i++)
+        {
+            if(num % i == 0)
+            {
+                cout<<"the prime factor "<<i<<endl;
+                 return 0;
+            }
+        }
+    }
+    return 0;
+}
+
+// Array
+#include<iostream>
+using namespace std;
+int main()
+{
+    int size;
+    cin>>size;
+    int* arr = new int[size];
+    for(int i=0;i<size;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<"enter the element :";
+    int element;
+    cin>>element;
+    cout<<"enter the position :";
+    int pos;
+    cin>>pos;
+    int* newArray = new int[size+1];
+    for(int i=0;i<pos;i++)
+    {
+        newArray[i] = arr[i]; 
+    }
+    newArray[pos] = element;
+    for(int i=pos;i<size;i++)
+    {
+        newArray[i+1] = arr[i];
+    }
+    cout<<"array after Insertion :"<<endl;
+    for(int i=0;i<size+1;i++)
+    {
+        cout<<newArray[i]<<" "<<endl;
+    }
+    return 0;
+}
+
+//Second Largest
+
+#include<iostream>
+using namespace std;
+int main()
+{
+    int size;
+    cin>>size;
+    int* array = new int[size];
+    for(int i=0;i<size;i++)
+    {
+        cin>>array[i];
+    }
+    if(size<2)
+    {
+        cout<<"the element must 2 value";
+    }
+    else
+    {
+    int Largest = array[0];
+    int Second = -1;
+    for(int i=0;i<size;i++)
+    {
+        if(array[i]>Largest)
+        {
+            Second = Largest;
+            Largest = array[i];
+        }
+        else if(array[i] > Second && array[i]!=Largest)
+        {
+            Second = array[i];
+        }
+    }
+    if(Second == -1)
+    {
+        cout<<"No second Largest element"<<endl;
+    }
+    else
+    {
+        cout<<"Second Largest element"<<Second<<endl;
+    }
+    return 0;
+}
+}
+
+// String
+
+#include<iostream>
+#include<string>
+using namespace std;
+int main()
+{
+    string ch1,ch2,ch3;
+    cin>>ch1>>ch2>>ch3;
+    
+    size_t pos = ch1.find(ch2);
+    while(pos != std::string::npos)
+    {
+        ch1.replace(pos,ch1.length(),ch3);
+        pos=ch1.find(ch2,pos+ch3.length());
+    }
+    cout<<ch1;
+
+    return 0;
+}
+
+
+// Methods
+
+
+#include<iostream>
+using namespace std;
+int add()
+{
+    int a,b;
+    cin>>a>>b;
+    return a+b;
+}
+int main()
+{
+    
+    int c = add();
+    cout<<c;
+    return 0;
+}*/
+
+
+// method overloading
+
+#include<iostream>
+using namespace std;
+int add(int a,int b)
+{
+    return a+b;
+}
+int add(double a,double b)
+{
+    return a+b;
+}
+int main()
+{
+    cout<<add(5,7)<<endl;
+    cout<<add(7.8,6.2)<<endl;
+    return 0;
+}
+
+// basic to array concepts in java
+
+/*import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int reverseNum = 0;
+        int temp = num;
+        while(temp>0)
+        {
+            reverseNum = reverseNum*10 + temp%10;
+            temp/=10;
+        }
+        int sq = num * num;
+        int sqrt = reverseNum * reverseNum;
+        int reversesqr = 0;
+        while(sq>0)
+        {
+            reversesqr = reversesqr*10 + sq%10;
+            sq/=10;
+        }
+        if(reversesqr == sqrt)
+        {
+            System.out.println("Adam Number");
+        }
+        else
+        {
+            System.out.println("Not Adam Number");
+        }
+    }
+}
+
+// print all the factors and amicable pair
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        //System.out.println("factors of "+num1+" are");
+        int num2 = sc.nextInt();
+        //System.out.println("factors of "+num2+" are");
+        int sum1 = 0;
+        for(int i=1;i<num1;i++)
+        {
+            if(num1 % i == 0)
+            {
+                System.out.println(i+" ");
+                sum1+=i;
+            }
+        }
+        int sum2 = 0;
+        for(int i=1;i<num2;i++)
+        {
+            if(num2 % i == 0)
+            {
+                System.out.println(i+" ");
+                sum2+=i;
+            }
+        }
+        if(sum1 == num2 && sum2 == num1)
+        {
+            System.out.println("Amicable pair");
+        }
+        else{
+            System.out.println("Not Amicable pair");
+        }
+    }
+}
+
+//GCD and lcm
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        int temp1 = num1;
+        int temp2 = num2;
+        while(temp2!=0)
+        {
+            int temp = temp2;
+            temp2 = temp1 % temp2;
+            temp1 = temp;
+        }
+        int gcd = temp1;
+        int lcm = (num1 * num2)/gcd;
+        System.out.println("The LCM is :"+lcm);
+    }
+}
+
+// prime factors
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        long num = sc.nextLong();
+        long gprime = 1;
+        for(int i=2;i*i<=num;i++)
+        {
+            while(num % i == 0)
+            {
+                gprime = i;
+                num/=i;
+            }
+        }
+        if(num<1)
+        {
+            gprime = num;
+        }
+        System.out.println(gprime);
+    }
+}
+//import java.util.Arrays;
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for(int i=0;i<size;i++)
+        {
+         arr[i] = sc.nextInt();   
+        }
+        System.out.println("enter the posistion to insert (0 - "+size+"): ");
+        int pos = sc.nextInt();
+        int[] newArray = new int[arr.length-1];
+        System.arraycopy(arr,0,newArray,0,pos);
+        newArray[pos] = element;
+        System.arraycopy(arr,pos+1,newArray,pos,arr.length-pos-1);
+        System.out.println("Array after delete :"+Arrays.toString(newArray));
+    }
+}
+
+// ARRAYS PROGRAMES
+//Array Reversed
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        int start = 0;
+        int end = size -1;
+        while(start<end)
+        {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+        System.out.println("After Reversed array");
+        for(int i=0;i<size;i++)
+        {
+         System.out.println(arr[i]+" ");   
+        }
+    }
+}
+
+//Majority element
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        int Majority = array[size/2];
+        int count = 0;
+        for(int i=0;i<size;i++)
+        {
+            if(array[i] == Majority)
+            {
+                count++;
+            }
+        }
+        if(count > size/2)
+        {
+            System.out.println("The Majority Element is"+Majority);
+        }
+        else
+        {
+            System.out.println("No Majority Element");
+        }
+    }
+}
+
+//Search the Element
+
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        System.out.println("Enter the Searching Element");
+        int searchele = sc.nextInt();
+        int temp = 0;
+        for(int i=0;i<size;i++)
+        {
+            if(array[i] == searchele)
+            {
+                temp = 1;
+                break;
+            }
+        }
+        if(temp == 1)
+        {
+            System.out.println("Element found in the given array");
+        }
+        else
+        {
+            System.out.println("Element Not found in the given array");
+        }
+    }
+}
+
+//Largest and Smellest Element
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        int Largest = array[0];
+        for(int i=0;i<size;i++)
+        {
+            if(array[i]<Largest)//if(array[i]>Largest)
+            {
+                Largest = array[i];
+            }
+        }
+        System.out.println("Largest Element :"+Largest);
+    }
+}
+
+// Sorted array
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        for(int i=0;i<size-1;i++)
+        {
+            for(int j=0;j<size-i-1;j++)
+            {
+                if(array[j]>array[j+1])
+                {
+                    int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }
+        System.out.println("After sorting");
+        for(int i=0;i<size;i++)
+        {
+            System.out.println(array[i]+" ");
+        }
+    }
+}
+
+//Array sorted or Not
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        boolean check = true;
+        for(int i=0;i<size-1;i++)
+        {
+            if(array[i]>array[i+1])
+            {
+                check = false;
+                break;
+            }
+        }
+        if(check)
+        {
+            System.out.println("Given array is Sorted");
+        }
+        else{
+            System.out.println("Given array is Not Sorted");
+        }
+    }
+}
+
+//Right rotation
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int[] array = new int[size];
+        for(int i=0;i<size;i++)
+        {
+            array[i] = sc.nextInt();
+        }
+        System.out.println("Enter the How many time Shift");
+        int k = sc.nextInt();
+        k=k%size;
+        for(int i=0;i<size;i++)
+        {
+            if(i<k)
+            {
+                System.out.println(array[size+i-k]);
+            }
+            else
+            {
+                System.out.println(array[i-k]);
+            }
+        }
+    }
+}
+
+//2D array
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        int[][] array = new int[row][col];
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                array[i][j] = sc.nextInt();
+            }
+        }
+        for(int i=0;i<row;i++)
+        {
+            System.out.print(array[i][col-1-i]+" ");
+        }
+    }
+}
+
+
+//Boundary Traversal
+
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        int[][] array = new int[row][col];
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                array[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println();
+        for(int i=0;i<row;i++)
+        {
+          System.out.print(array[0][i]+" ");
+        }
+        for(int i=1;i<row;i++)
+        {
+          System.out.print(array[i][col-1]+" ");
+        }
+        for(int i=1;i<row;i++)
+        {
+          System.out.print(array[row-1][col-1-i]+" ");
+        }
+        for(int i=row-2;i>0;i--)
+        {
+          System.out.print(array[i][0]+" ");
+        }
+    }
+}
+
+
+//ZIGZAG Traversal
+
+
+import java.util.*;
+class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        int[][] array = new int[row][col];
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                array[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println();
+        
+        for(int i=0;i<row;i++)
+        {
+            if(i%2 == 0)
+            {
+                for(int j=0;j<col;j++)
+                {
+                    System.out.print(array[i][j]+" ");
+                }
+            }
+            else{
+                for(int j=col-1;j>=0;j--)
+                {
+                    System.out.print(array[i][j]+" ");
+                }
+            }
+            
+        }
+    }
+}
+
+
+
+//Spieral Traversal
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
+        int[][] array = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                array[i][j] = sc.nextInt();
+            }
+        }
+        System.out.println();
+        int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
+
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++) 
+            System.out.print(array[top][i] + " ");
+            top++;
+
+            for (int i = top; i <= bottom; i++) 
+            System.out.print(array[i][right] + " ");
+            right--;
+
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--)
+                System.out.print(array[bottom][i] + " ");
+                bottom--;
+            }
+
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) 
+                System.out.print(array[i][left] + " ");
+                left++;
+            }
+        }
+    }
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
